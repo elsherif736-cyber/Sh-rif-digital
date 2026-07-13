@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sherif Digital — Ebooks & Formations</title>
+<meta name="description" content="Ebooks et formations pratiques pour apprendre, entreprendre et développer vos projets en ligne.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0B0D10;
+    --bg-soft: #101318;
+    --card: #15181D;
+    --card-line: rgba(242,239,233,0.08);
+    --text: #F2EFE9;
+    --muted: #9A9C9F;
+    --gold: #C9A227;
+    --gold-bright: #E4C567;
+    --blue: #3E6BF0;
+    --radius: 4px;
+    --wrap: 1120px;
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; line-height:1.1;}
+  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold); display:inline-block;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px;}
+  section{position:relative;}
+  .seal{width:96px; height:96px; border-radius:50%; border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center; position:relative; flex-shrink:0;}
+  .seal::before{content:''; position:absolute; inset:6px; border:1px dashed rgba(201,162,39,0.5); border-radius:50%;}
+  .seal-text{font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-bright); text-align:center; line-height:1.4;}
+  header{position:sticky; top:0; z-index:100; background:rgba(11,13,16,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--card-line);}
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .logo{font-family:'Fraunces', serif; font-size:20px; font-weight:600; letter-spacing:-0.01em;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex; gap:32px; font-size:14px; color:var(--muted);}
+  .nav-links a:hover{color:var(--text);}
+  .btn-nav-wa{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.05em; border:1px solid var(--gold); color:var(--gold-bright); padding:9px 18px; border-radius:2px; transition:background .25s, color .25s;}
+  .btn-nav-wa:hover{background:var(--gold); color:#0B0D10;}
+  .hero{padding:96px 0 88px; border-bottom:1px solid var(--card-line); background:radial-gradient(ellipse 900px 500px at 85% -10%, rgba(62,107,240,0.16), transparent 60%), radial-gradient(ellipse 700px 400px at 10% 110%, rgba(201,162,39,0.10), transparent 60%);}
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:center;}
+  .hero h1{font-size:clamp(34px, 5vw, 56px); margin:20px 0 22px;}
+  .hero h1 em{font-style:normal; color:var(--gold); position:relative;}
+  .hero p.lead{font-size:17px; color:var(--muted); max-width:46ch; margin-bottom:36px;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:15px 26px; font-size:14px; font-weight:600; border-radius:2px; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; border:1px solid transparent;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold); color:#0B0D10;}
+  .btn-gold:hover{background:var(--gold-bright); box-shadow:0 10px 30px -8px rgba(201,162,39,0.5);}
+  .btn-outline{border-color:rgba(242,239,233,0.25); color:var(--text);}
+  .btn-outline:hover{border-color:var(--blue); box-shadow:0 10px 30px -8px rgba(62,107,240,0.4);}
+  .hero-visual{position:relative; aspect-ratio:1/1.08; border:1px solid var(--card-line); border-radius:var(--radius); background:linear-gradient(160deg, #14171C 0%, #0E1014 100%); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .hero-visual .grid-lines{position:absolute; inset:0; background-image:linear-gradient(rgba(242,239,233,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(242,239,233,0.05) 1px, transparent 1px); background-size:32px 32px;}
+  .hero-visual .seal{width:150px; height:150px; border-width:2px; animation:spin 32s linear infinite;}
+  .hero-visual .seal-text{font-size:11px;}
+  @keyframes spin{ to { transform:rotate(360deg); } }
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .about{padding:88px 0; border-bottom:1px solid var(--card-line);}
+  .about-grid{display:grid; grid-template-columns:0.4fr 0.6fr; gap:56px; align-items:start;}
+  .about h2{font-size:clamp(26px,3.4vw,36px); margin-top:14px;}
+  .about p{color:var(--muted); font-size:16px; max-width:58ch;}
+  .stat-row{display:flex; gap:40px; margin-top:32px; flex-wrap:wrap;}
+  .stat{font-family:'IBM Plex Mono', monospace;}
+  .stat .num{font-family:'Fraunces', serif; font-size:28px; color:var(--gold); display:block;}
+  .stat .label{font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase;}
+  .offers{padding:88px 0; border-bottom:1px solid var(--card-line);}
+  .offers-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; gap:24px; flex-wrap:wrap;}
+  .offers-head h2{font-size:clamp(26px,3.4vw,36px); margin-top:14px;}
+  .card-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+  .card{background:var(--card); border:1px solid var(--card-line); border-radius:var(--radius); padding:32px 28px; display:flex; flex-direction:column; transition:border-color .25s, transform .25s; position:relative;}
+  .card:hover{border-color:rgba(201,162,39,0.4); transform:translateY(-4px);}
+  .card .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:18px;}
+  .card h3{font-size:21px; margin-bottom:12px;}
+  .card p{color:var(--muted); font-size:14.5px; flex-grow:1; margin-bottom:24px;}
+  .card-btns{display:flex; flex-direction:column; gap:10px;}
+  .card-btns .btn{justify-content:center; padding:13px 20px; font-size:13.5px;}
+  .card-num{position:absolute; top:28px; right:28px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--muted);}
+  .why{padding:88px 0; border-bottom:1px solid var(--card-line); background:var(--bg-soft);}
+  .why h2{font-size:clamp(26px,3.4vw,36px); margin:14px 0 48px;}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--card-line); border:1px solid var(--card-line);}
+  .why-item{background:var(--bg-soft); padding:32px 26px;}
+  .why-item .mark{width:38px; height:38px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'IBM Plex Mono', monospace; font-size:15px; margin-bottom:18px;}
+  .why-item h4{font-family:'Fraunces', serif; font-weight:500; font-size:16.5px; margin-bottom:8px;}
+  .why-item p{color:var(--muted); font-size:13.5px;}
+  .testi{padding:88px 0; border-bottom:1px solid var(--card-line);}
+  .testi h2{font-size:clamp(26px,3.4vw,36px); margin:14px 0 44px;}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .testi-card{border:1px dashed var(--card-line); border-radius:var(--radius); padding:28px 24px; min-height:170px; display:flex; flex-direction:column; justify-content:space-between; color:var(--muted); font-size:13.5px;}
+  .testi-card .ph{width:34px; height:34px; border-radius:50%; border:1px solid var(--card-line); margin-bottom:14px;}
+  .contact{padding:100px 0; text-align:center; position:relative; overflow:hidden;}
+  .contact::before{content:''; position:absolute; inset:0; background:radial-gradient(ellipse 700px 400px at 50% 50%, rgba(201,162,39,0.10), transparent 65%);}
+  .contact-inner{position:relative;}
+  .contact .seal{margin:0 auto 24px;}
+  .contact h2{font-size:clamp(28px,4vw,42px); margin-bottom:16px;}
+  .contact p{color:var(--muted); max-width:46ch; margin:0 auto 36px;}
+  .contact .phone{font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--gold-bright); margin-top:22px; display:block;}
+  footer{border-top:1px solid var(--card-line); padding:40px 0;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .footer-links{display:flex; gap:26px; font-size:13px; color:var(--muted);}
+  .footer-links a:hover{color:var(--text);}
+  .copyright{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);}
+  .wa-float{position:fixed; bottom:22px; right:22px; z-index:200; width:56px; height:56px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px -6px rgba(201,162,39,0.55); transition:transform .2s ease;}
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:26px; height:26px;}
+  @media (max-width: 860px){
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-visual{order:-1; aspect-ratio:16/10;}
+    .about-grid{grid-template-columns:1fr; gap:28px;}
+    .card-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .offers-head{flex-direction:column; align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">Sherif <span>Digital</span></div>
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#offres">Offres</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn-nav-wa" href="https://wa.me/22898018607" target="_blank" rel="noopener">WhatsApp →</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Ebooks & formations digitales</div>
+      <h1>Développez vos compétences <em>digitales</em> avec Sherif Digital</h1>
+      <p class="lead">Des ebooks et formations pratiques pour apprendre, entreprendre et développer vos projets en ligne — commerce, importation et finance.</p>
+      <div class="cta-row">
+        <a href="#offres" class="btn btn-gold">Découvrir nos offres</a>
+        <a href="https://wa.me/22898018607" target="_blank" rel="noopener" class="btn btn-outline">Nous contacter sur WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="grid-lines"></div>
+      <div class="seal">
+        <div class="seal-text">Sherif Digital · Formation · Ressources · CI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">Notre mission</div>
+      <h2>À propos de<br>Sherif Digital</h2>
+    </div>
+    <div class="reveal">
+      <p>Sherif Digital propose des ressources numériques et des formations accessibles pour aider les entrepreneurs et débutants à développer leurs compétences dans le digital, le commerce en ligne et la finance.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="num">3</span><span class="label">Formations & ebooks</span></div>
+        <div class="stat"><span class="num">100%</span><span class="label">Accessible en ligne</span></div>
+        <div class="stat"><span class="num">24/7</span><span class="label">Support WhatsApp</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offers" id="offres">
+  <div class="wrap">
+    <div class="offers-head reveal">
+      <div>
+        <div class="eyebrow">Catalogue</div>
+        <h2>Nos offres</h2>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card reveal">
+        <span class="card-num">01</span>
+        <div class="tag">Ebook</div>
+        <h3>Importation Chine & Commerce en ligne</h3>
+        <p>Un guide pratique pour apprendre à trouver des fournisseurs, comprendre l'importation et développer une activité commerciale.</p>
+        <div class="card-btns">
+          <a href="#" class="btn btn-gold" data-chariow="ebook-import-chine">Acheter maintenant</a>
+          <a href="https://wa.me/22898018607?text=Bonjour%2C%20je%20suis%20intéressé%20par%20l%27ebook%20Importation%20Chine" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <span class="card-num">02</span>
+        <div class="tag">Formation</div>
+        <h3>Formation Trading</h3>
+        <p>Une formation pour comprendre les bases du trading, l'analyse des graphiques et la gestion du risque.</p>
+        <div class="card-btns">
+          <a href="#" class="btn btn-gold" data-chariow="formation-trading">S'inscrire</a>
+          <a href="https://wa.me/22898018607?text=Bonjour%2C%20je%20suis%20intéressé%20par%20la%20Formation%20Trading" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <span class="card-num">03</span>
+        <div class="tag">Formation</div>
+        <h3>Formation Produits Digitaux</h3>
+        <p>Apprenez à créer et vendre des produits numériques en ligne.</p>
+        <div class="card-btns">
+          <a href="#" class="btn btn-gold" data-chariow="formation-produits-digitaux">Acheter maintenant</a>
+          <a href="https://wa.me/22898018607?text=Bonjour%2C%20je%20suis%20intéressé%20par%20la%20Formation%20Produits%20Digitaux" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Nos engagements</div>
+      <h2>Pourquoi nous choisir</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="mark">✓</div>
+        <h4>Guides simples et pratiques</h4>
+        <p>Un contenu clair, sans jargon inutile, pensé pour être appliqué immédiatement.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="mark">✓</div>
+        <h4>Accompagnement WhatsApp</h4>
+        <p>Une réponse rapide à vos questions, directement depuis votre téléphone.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="mark">✓</div>
+        <h4>Formations
